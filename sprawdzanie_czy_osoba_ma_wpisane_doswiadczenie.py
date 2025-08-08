@@ -10,11 +10,11 @@ dane = {
     }
 }
 
-def sprawdz_liste(slownik, imie, slowo_kluczowe):
-    sprawdzacz = [element == slowo_kluczowe for element in slownik[imie]["Doświadczenie"]]
-    if any(sprawdzacz):
-        return f"{imie} ma '{slowo_kluczowe}' w spisie doświadczeń."
-    return f"{imie} nie ma '{slowo_kluczowe}' w spisie doświadczeń."
+def check_list(database, name, key_word):
+    checker = [element == key_word for element in database[name]["Doświadczenie"]]
+    if any(checker):
+        return f"{name} ma '{key_word}' w spisie doświadczeń."
+    return f"{name} nie ma '{key_word}' w spisie doświadczeń."
 
-print(sprawdz_liste(dane, "Jakub", "Java"))
-print(sprawdz_liste(dane, "Maria", "C++"))
+print(check_list(dane, "Jakub", "Java"))
+print(check_list(dane, "Maria", "C++"))
