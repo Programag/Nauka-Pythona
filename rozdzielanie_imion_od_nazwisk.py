@@ -1,17 +1,17 @@
 def split_names(database):
     names = []
     for element in database:
-        if " " in database[database.index(element)]:
-            place = database[database.index(element)].index(" ")
-            names.append(database[database.index(element)][0 : (place)])
+        if " " in element:
+            place = element.index(" ")
+            names.append(element[:place])
     return names
 
 def split_surnames(database):
     surnames = []
     for element in database:
-        if " " in database[database.index(element)]:
-            place = database[database.index(element)].index(" ")
-            surnames.append(database[database.index(element)][(place + 1) : ])
+        if " " in element:
+            place = element.index(" ")
+            surnames.append(element[(place + 1):])
     return surnames
 
 def add_data_to_text_file(file_name, database):
