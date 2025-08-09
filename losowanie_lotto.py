@@ -1,14 +1,17 @@
 import random 
 
-numbers = set({})
-
 def choose_numbers(amount, total_amount):
-    global numbers
-    for i in range(amount):
+    numbers = []
+    counter = 0
+    while amount > counter:
         number = random.randint(0, total_amount)
-        numbers.add(number)
-        print(f"{i + 1}. {number}")
+        if number in numbers:
+            counter -= 1
+        else:
+            numbers.append(number)
+        amount -= 1
+    return numbers
 
-choose_numbers(6, 49)
-numbers_list = list(numbers)
-print(numbers_list)
+numbers_list = choose_numbers(6, 49)
+for count, element in enumerate(numbers_list, start=1):
+        print(f"{count}. {element}")
